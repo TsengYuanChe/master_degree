@@ -1,11 +1,13 @@
 import pandas as pd
 import matplotlib.pyplot as plt
+import numpy as np
 
-formula = "0.4x^2 + 0.1x + -0.09681(x-1)**1.00335"
+formula = "0.4x^2 + 0.1x + -0.09681(x-1)^1.00335"
 data = pd.read_csv(f'fitting/{formula}.csv')
 
-mse = (data['Error'] ** 2).mean()  # 均方誤差
-mae = data['Error'].abs().mean()  # 平均絕對誤差
+mpe = data['Error'].mean() * 100  # 平均百分誤差 (MPE)
+mape = data['Error'].abs().mean() * 100  # 平均絕對百分誤差 (MAPE)
+log_error = np.log1p(data['Error'].abs()).mean()  # 對數誤差 (避免負值問題用 log1p)
 
 # 繪製 Random x 和 Error 的圖
 plt.figure(figsize=(10, 6))
@@ -16,10 +18,10 @@ plt.xlabel('Number of state', fontsize=12)
 plt.ylabel('Error', fontsize=12)
 plt.title(f'Error of {formula}', fontsize=14)
 
-text_x = 0.80  # x 軸文字位置 (圖表百分比位置)
-text_y = 0.82  # y 軸文字位置 (圖表百分比位置)
-plt.text(text_x, text_y, f"MSE: {mse:.10f}\nMAE: {mae:.10f}", transform=plt.gca().transAxes,
-         fontsize=10, bbox=dict(facecolor='white', alpha=0.8))
+text_x = 0.75  # x 軸文字位置 (圖表百分比位置)
+text_y = 0.80  # y 軸文字位置 (圖表百分比位置)
+plt.text(text_x, text_y, f"MPE: {mpe:.10f}%\nMAPE: {mape:.10f}%\nLog Error: {log_error:.10f}",
+         transform=plt.gca().transAxes, fontsize=10, bbox=dict(facecolor='white', alpha=0.8))
 
 # 顯示網格與圖例
 plt.grid(True)
