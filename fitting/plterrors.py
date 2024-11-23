@@ -1,7 +1,7 @@
 import pandas as pd
 import matplotlib.pyplot as plt
 
-formula = "0.40000x^2 + 0.00016x + 1.31853"
+formula = "0.4x^2 + 0.1x + -0.09681(x-1)**1.00335"
 data = pd.read_csv(f'fitting/{formula}.csv')
 
 mse = (data['Error'] ** 2).mean()  # 均方誤差
