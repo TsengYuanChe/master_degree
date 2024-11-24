@@ -8,8 +8,8 @@ x_data = data['Eigenstate'].values
 y_data = data['Energy'].values
 
 # 自定義擬合函數 (例子：二次多項式)
-def custom_model(x, a, b):
-    return 0.4 * x**2 + 0.1*x + a*(x-1)**b
+def custom_model(x, a, b, c, d):
+    return a * x**3 + b*x**2 + c*x + d
 
 # 擬合數據
 popt, pcov = curve_fit(custom_model, x_data, y_data)
@@ -42,7 +42,7 @@ original_y = np.array(original_y)
 # 計算誤差
 errors = (predicted_y - original_y)/original_y
 
-formula = f"0.4x^2 + 0.1x + {popt[0]:.5f}(x-1)^{popt[1]:.5f}"
+formula = f"{popt[0]:.5f}x^3 + {popt[1]:.5f}x^2 + {popt[2]:.5f}x +{popt[3]:.5f}"
 print(f"擬合公式: y = {formula}")
 print(f"R² = {r_squared:.5f}\n")
 

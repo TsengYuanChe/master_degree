@@ -2,7 +2,7 @@ import pandas as pd
 import matplotlib.pyplot as plt
 import numpy as np
 
-formula = "0.4x^2 + 0.1x + -0.09681(x-1)^1.00335"
+formula = "0.00000x^3 + 0.40000x^2 + 0.00030x +1.20978"
 data = pd.read_csv(f'fitting/{formula}.csv')
 
 mpe = data['Error'].mean() * 100  # 平均百分誤差 (MPE)
