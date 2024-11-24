@@ -1,10 +1,11 @@
 import pandas as pd
 import matplotlib.pyplot as plt
+from matplotlib.ticker import MultipleLocator
 
 # 讀取 CSV 文件
 data = pd.read_csv('fitting/0.4x^2 + 0.1x + -0.09681(x-1)^1.00335.csv')
-xleft = 90
-xright = 100
+xleft = 1
+xright = 10000
 ybottom = data.loc[data['State'] == xleft, 'Original energy'].values[0] * 0.9
 ytop = data.loc[data['State'] == xright, 'Original energy'].values[0] * 1.1
 
@@ -21,6 +22,7 @@ plt.plot(data['State'], data['Original energy'], label='Energy', color='red', li
 plt.xlim(xleft, xright)  # 替換為你的 x 軸範圍
 plt.ylim(ybottom, ytop)      # 替換為你的 y 軸範圍
 
+#plt.gca().xaxis.set_major_locator(MultipleLocator(1))
 plt.ticklabel_format(style='plain', axis='x')
 plt.ticklabel_format(style='plain', axis='y')
 
