@@ -14,10 +14,10 @@ ytop = data.loc[data['State'] == xright, 'Original energy'].values[0] * 1.01
 plt.figure(figsize=(10, 6))
 
 # 繪製 State vs Predicted energy
-plt.plot(data['State'], data['Predicted energy'], label=f'{filename}', color='blue', linewidth=1.5)
+plt.plot(data['State'], data['Predicted energy'], label='0.20550ln(n+1) + 0.5', color='blue', linewidth=1.5)
 
 # 繪製 State vs Original energy
-plt.plot(data['State'], data['Original energy'], label='Energy', color='red', linestyle='--', linewidth=1.5)
+plt.plot(data['State'], data['Original energy'], label='Potential energy', color='red', linestyle='--', linewidth=1.5)
 
 # 設定軸範圍
 plt.xlim(xleft, xright)  # 替換為你的 x 軸範圍
@@ -28,9 +28,9 @@ plt.ticklabel_format(style='plain', axis='x')
 plt.ticklabel_format(style='plain', axis='y')
 
 # 設定標籤與標題
-plt.xlabel('Number of eigenstates', fontsize=16)
-plt.ylabel('Potential Energy (E$_h$)', fontsize=16)
-plt.title(f'Comparison of potential energy and {filename}', fontsize=16)
+plt.xlabel('Number of eigenstates (n+1)', fontsize=16)
+plt.ylabel('Potential Energy (E$_v$)', fontsize=16)
+plt.title(f'Comparison of potential energy and 0.20550ln(n+1) + 0.5', fontsize=16)
 
 plt.tick_params(axis='both', which='major', labelsize=12)
 

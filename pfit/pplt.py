@@ -13,8 +13,8 @@ plt.figure(figsize=(10, 6))
 plt.plot(x, y, label='Potential Energy', color='red', linewidth=1.5)
 
 # 設定標籤與標題
-plt.xlabel('Number of eigenstates', fontsize=14)
-plt.ylabel('Potential Energy (E$_h$)', fontsize=14)
+plt.xlabel('Number of eigenstates (n+1)', fontsize=14)
+plt.ylabel('Potential Energy (E$_v$)', fontsize=14)
 plt.title('Potential Energy', fontsize=16)
 
 # 設定 x 軸和 y 軸範圍（可選）
