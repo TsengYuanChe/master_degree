@@ -25,5 +25,5 @@ plt.grid(True)
 plt.legend(fontsize=12)
 
 # 儲存圖表並顯示
-plt.savefig('grounde/difference_vs_matrix_size.png', dpi=300, bbox_inches='tight')
+plt.savefig('grounde/logground.png', dpi=300, bbox_inches='tight')
 plt.show()

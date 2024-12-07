@@ -37,22 +37,3 @@ result = pd.DataFrame({
 })
 result.to_csv('allpfit/a * np.log(x) + 0.5.csv', index=False)
 print("結果已儲存成功至：allpfit/a * np.log(x) + 0.5.csv")
-
-
-
-
-
-
-
-
-# 可視化結果
-#plt.figure(figsize=(10, 6))
-#plt.scatter(x_data, y_data, label='原始數據', color='red')
-#plt.plot(x_data, y_fit, label=f'擬合曲線\n$R^2={r_squared:.5f}$', color='blue', linewidth=2)
-#plt.xlabel('Eigenstate', fontsize=12)
-#plt.ylabel('Energy', fontsize=12)
-#plt.title('自定義函數擬合結果', fontsize=14)
-#plt.legend(fontsize=12)
-#plt.grid(True)
-#plt.tight_layout()
-#plt.show()

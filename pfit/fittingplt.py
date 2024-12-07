@@ -5,7 +5,7 @@ from matplotlib.ticker import MultipleLocator
 # 讀取 CSV 文件
 filename = '0.20550ln(x) + 0.5'
 data = pd.read_csv(f'pfit/{filename}.csv')
-xleft = 1
+xleft = 5000
 xright = 10000
 ybottom = data.loc[data['State'] == xleft, 'Original energy'].values[0] * 0.99
 ytop = data.loc[data['State'] == xright, 'Original energy'].values[0] * 1.01
@@ -17,7 +17,7 @@ plt.figure(figsize=(10, 6))
 plt.plot(data['State'], data['Predicted energy'], label='0.20550ln(n+1) + 0.5', color='blue', linewidth=1.5)
 
 # 繪製 State vs Original energy
-plt.plot(data['State'], data['Original energy'], label='Potential energy', color='red', linestyle='--', linewidth=1.5)
+plt.plot(data['State'], data['Original energy'], label='Residual value', color='red', linestyle='--', linewidth=1.5)
 
 # 設定軸範圍
 plt.xlim(xleft, xright)  # 替換為你的 x 軸範圍
@@ -29,8 +29,8 @@ plt.ticklabel_format(style='plain', axis='y')
 
 # 設定標籤與標題
 plt.xlabel('Number of eigenstates (n+1)', fontsize=16)
-plt.ylabel('Potential Energy (E$_v$)', fontsize=16)
-plt.title(f'Comparison of potential energy and 0.20550ln(n+1) + 0.5', fontsize=16)
+plt.ylabel('Residual value (E$_r$)', fontsize=16)
+plt.title(f'Comparison of residual value and 0.20550ln(n+1) + 0.5', fontsize=16)
 
 plt.tick_params(axis='both', which='major', labelsize=12)
 

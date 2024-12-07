@@ -10,12 +10,12 @@ y = data['Potential Energy']
 
 # 繪製圖表
 plt.figure(figsize=(10, 6))
-plt.plot(x, y, label='Potential Energy', color='red', linewidth=1.5)
+plt.plot(x, y, label='Residual value', color='red', linewidth=1.5)
 
 # 設定標籤與標題
 plt.xlabel('Number of eigenstates (n+1)', fontsize=14)
-plt.ylabel('Potential Energy (E$_v$)', fontsize=14)
-plt.title('Potential Energy', fontsize=16)
+plt.ylabel('Residual value (E$_r$)', fontsize=14)
+plt.title('Residual value', fontsize=16)
 
 # 設定 x 軸和 y 軸範圍（可選）
 plt.xlim(left=x.min(), right=x.max())  # 根據數據自動設定

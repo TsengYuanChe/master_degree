@@ -16,7 +16,7 @@ for i in range(1, 10001):
         first_row = Decimal(df.iloc[0, 0])  # 提取第一行第一列並轉換為 Decimal
 
         # 計算數據並添加到列表
-        data_list.append({'Matrix size': i, 'Lowest energy': first_row, 'Difference': first_row - ref, 'Log': -np.log10(first_row - ref)})
+        data_list.append({'Matrix size': i, 'Lowest energy': first_row, 'Difference': first_row - ref, 'Log': np.log10(first_row - ref)})
     except FileNotFoundError:
         print(f"檔案 {file_name} 找不到，跳過該檔案")
     except Exception as e:
