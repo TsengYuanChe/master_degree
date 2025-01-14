@@ -3,7 +3,8 @@ import numpy as np
 from decimal import Decimal, getcontext
 import math
 
-# 設定高精度
+n = 1
+
 getcontext().prec = 50
 
 file_path = 'alleigenvalues/all_eigenvalues10.csv'
@@ -16,9 +17,9 @@ eigenvalue_3 = data['Eigenvalue 3'].apply(lambda x: Decimal(x) if pd.notna(x) el
 eigenvalue_4 = data['Eigenvalue 4'].apply(lambda x: Decimal(x) if pd.notna(x) else np.nan)
 
 difference_10 = Decimal(0.5)
-difference_21 = eigenvalue_2.min() - eigenvalue_1.min()
-difference_32 = eigenvalue_3.min() - eigenvalue_2.min()
-difference_43 = eigenvalue_4.min() - eigenvalue_3.min()
+difference_21 = eigenvalue_2[:-n].min() - eigenvalue_1[:-n].min()
+difference_32 = eigenvalue_3[:-n].min() - eigenvalue_2[:-n].min()
+difference_43 = eigenvalue_4[:-n].min() - eigenvalue_3[:-n].min()
 
 # 初始化結果列表
 adjusted_values_1 = []
@@ -45,7 +46,7 @@ for value in eigenvalue_1:
 
 for value in eigenvalue_2:
     if pd.notna(value):
-        adjusted_value = value - difference_10 - difference_21 + Decimal(0.17*10**(-12))
+        adjusted_value = value - difference_10 - difference_21
         adjusted_values_2.append(adjusted_value)
         if adjusted_value > 0:
             log_adjusted_values_2.append(Decimal(math.log10(adjusted_value)))
@@ -57,7 +58,7 @@ for value in eigenvalue_2:
         
 for value in eigenvalue_3:
     if pd.notna(value):
-        adjusted_value = value - difference_10 - difference_21 - difference_32 + Decimal(0.55*10**(-12))
+        adjusted_value = value - difference_10 - difference_21 - difference_32
         adjusted_values_3.append(adjusted_value)
         if adjusted_value > 0:
             log_adjusted_values_3.append(Decimal(math.log10(adjusted_value)))
@@ -69,7 +70,7 @@ for value in eigenvalue_3:
         
 for value in eigenvalue_4:
     if pd.notna(value):
-        adjusted_value = value - difference_10 - difference_21 - difference_32 - difference_43 + Decimal(1.15*10**(-12))
+        adjusted_value = value - difference_10 - difference_21 - difference_32 - difference_43
         adjusted_values_4.append(adjusted_value)
         if adjusted_value > 0:
             log_adjusted_values_4.append(Decimal(math.log10(adjusted_value)))
@@ -97,6 +98,6 @@ new_data = pd.DataFrame({
 })
 
 # 儲存為新的 CSV 文件
-output_file = 'difference_fit/eigenvalues_data.csv'
+output_file = '20250114/eigenvalues_data.csv'
 new_data.to_csv(output_file, index=False, float_format='%.50f')
 print(f"結果已成功儲存至: {output_file}")
