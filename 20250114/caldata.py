@@ -46,7 +46,7 @@ for value in eigenvalue_1:
 
 for value in eigenvalue_2:
     if pd.notna(value):
-        adjusted_value = value - difference_10 - difference_21
+        adjusted_value = value - difference_10 - difference_21 + 10**(-12)
         adjusted_values_2.append(adjusted_value)
         if adjusted_value > 0:
             log_adjusted_values_2.append(Decimal(math.log10(adjusted_value)))

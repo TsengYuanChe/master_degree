@@ -2,7 +2,7 @@ import pandas as pd
 import matplotlib.pyplot as plt
 import numpy as np
 
-formula = "0.20146ln(0.20146x) + 0.5"
+formula = "0.20550ln(x) + 0.5"
 data = pd.read_csv(f'pfit/{formula}.csv')
 
 mpe = data['Error'].mean() * 100  # 平均百分誤差 (MPE)

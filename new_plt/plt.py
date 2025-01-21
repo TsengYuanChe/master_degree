@@ -32,15 +32,15 @@ for col in eigenvalue_columns:
 
 # 設定標籤與標題
 plt.xlabel('Matrix size (N)', fontsize=14)
-plt.ylabel('Logarithm of normalized eigenvalue', fontsize=14)
-plt.title(f'Eigenvalues {start}-{end} vs Matrix size', fontsize=16)
+plt.ylabel('Logarithm of standardized eigenvalues', fontsize=14)
+plt.title(f'Standardized Eigenvalues {start}-{end} vs Matrix size', fontsize=16)
 
-plt.ylim(-14, -10)
+#plt.ylim(-14, -8)
 plt.legend(fontsize=8, title_fontsize=14)
 plt.grid(True)
 
 # 儲存圖表
-output_file = f'new_plt/eigenvalues_{start}_{end}_smallest.png'
+output_file = f'new_plt/eigenvalues_{start}_{end}.png'
 plt.savefig(output_file, dpi=300, bbox_inches='tight')
 plt.show()
 

@@ -4,7 +4,7 @@ from scipy.optimize import curve_fit
 import matplotlib.pyplot as plt
 
 # 讀取數據
-file_path = 'difference_fit/eigenvalues_data.csv'
+file_path = 'PT/eigenvalues_data2.csv'
 data = pd.read_csv(file_path)
 
 # 過濾掉沒有 Log(Adjusted Eigenvalue) 的數據
@@ -68,7 +68,7 @@ plt.legend(fontsize=12)
 plt.grid(True)
 
 # 儲存與顯示圖表
-output_file = 'difference_fit/fitting_result.png'
+output_file = 'PT/fitting_result2_detail.png'
 plt.savefig(output_file, dpi=300, bbox_inches='tight')
 plt.show()
 

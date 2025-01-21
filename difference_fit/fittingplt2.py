@@ -37,7 +37,7 @@ for i in range(0,4):
     r_squared.append(1 - (ss_res / ss_tot))
     
     # 擬合公式
-    formula.append(f"{popt[0]:.5f}log(x) + {popt[1]:.5f}")
+    formula.append(f"{popt[0]:.5f}log(N) + {popt[1]:.5f}")
     print(f"擬合公式 {i+1}: y = {formula[i]}")
     print(f"R² {i+1} = {r_squared[i]:.5f}")
     
@@ -56,19 +56,19 @@ plt.plot(x_data, y_fit[1], label=f'Fitting: {formula[1]}\n$R^2={r_squared[1]:.5f
 plt.plot(x_data, y_fit[2], label=f'Fitting: {formula[2]}\n$R^2={r_squared[2]:.5f}$', color='green', linewidth=2)
 plt.plot(x_data, y_fit[3], label=f'Fitting: {formula[3]}\n$R^2={r_squared[3]:.5f}$', color='purple', linewidth=2)
 
-#plt.xlim(6000, 10100)
-#plt.ylim(-13.6, -11.8)
+plt.xlim(6000, 10100)
+plt.ylim(-13.6, -11.8)
 # 設定標籤與標題
-plt.xlabel('Matrix size', fontsize=14)
+plt.xlabel('Matrix size (N)', fontsize=14)
 plt.ylabel('Log(Adjusted Eigenvalue)', fontsize=14)
-plt.title('Fitting Result and Original Data', fontsize=16)
+plt.title('Fitting functions and adjusted data', fontsize=16)
 
 # 顯示圖例與格線
 plt.legend(fontsize=12)
 plt.grid(True)
 
 # 儲存與顯示圖表
-output_file = 'difference_fit/fitting_result2.png'
+output_file = 'difference_fit/fitting_result2_detail.png'
 plt.savefig(output_file, dpi=300, bbox_inches='tight')
 plt.show()
 
